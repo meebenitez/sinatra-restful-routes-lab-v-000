@@ -40,7 +40,11 @@ class ApplicationController < Sinatra::Base
     erb :show
   end
 
-  delete '/posts/:id/delete '
+  delete '/recipes/:id/delete' do
+    @recipe = Recipe.find_by_id(params[:id])
+    @recipe.delete
+    erb :deleted
+  end
 
 
 
